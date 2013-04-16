@@ -1,0 +1,23 @@
+name:                hscrtmpl
+version:             1.0
+cabal-version:       >= 1.8
+build-type:          Simple
+license:             BSD3
+license-file:        LICENSE
+copyright:           2013 Dino Morelli
+author:              Dino Morelli
+maintainer:          Dino Morelli <dino@ui3.info>
+stability:           experimental
+homepage:            http://foo/bar/baz.html
+synopsis:            Foo
+description:         Bar Baz
+category:            Script
+tested-with:         GHC >= 7.6.2
+
+source-repository    head
+   type:             darcs
+   location:         http://ui3.info/darcs/hscrtmpl
+
+executable           hscrtmpl
+   main-is:          hscrtmpl.hs
+   build-depends:    base >= 3 && < 5, directory, old-locale, old-time
