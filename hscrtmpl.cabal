@@ -18,6 +18,8 @@ source-repository    head
    type:             darcs
    location:         http://ui3.info/darcs/hscrtmpl
 
+-- Hey! hscrtmpl.hs is a *script*, you don't have to build it unless
+-- you want to have a binary!
 executable           hscrtmpl
    main-is:          hscrtmpl.hs
    build-depends:    base >= 3 && < 5, directory, old-locale, old-time
