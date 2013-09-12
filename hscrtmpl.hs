@@ -25,7 +25,7 @@
 -}
 
 --import Control.Monad ( when, unless )
---import System.Cmd
+import System.Cmd
 import System.Directory
 --import System.Environment
 import System.Exit
@@ -77,6 +77,32 @@ logM msg = do
 ok :: ExitCode -> Bool
 ok ExitSuccess = True
 ok _           = False
+
+
+{- Turn a Bool into an exit code
+-}
+toExitCode :: Bool -> ExitCode
+toExitCode True  = ExitSuccess
+toExitCode False = ExitFailure 1
+
+
+{- Exit with a success or failure code using a Bool
+-}
+exitBool :: Bool -> IO ()
+exitBool = exitWith . toExitCode
+
+
+{- This is similar to the for/in/do/done construct in bash with an
+   important difference. This action evaluates to ExitFailure 1 if
+   *any* of the command executions fails. In bash you only get the
+   exit code of the last one.
+-}
+forSystem :: [String] -> IO ExitCode
+forSystem cs = do
+   ecs <- mapM system cs
+   return $ case all (== ExitSuccess) ecs of
+      True  -> ExitSuccess
+      False -> ExitFailure 1
 
 
 {- Some common bash things and their Haskell counterparts:

@@ -22,4 +22,8 @@ source-repository    head
 -- you want to have a binary!
 executable           hscrtmpl
    main-is:          hscrtmpl.hs
-   build-depends:    base >= 3 && < 5, directory, old-locale, old-time
+   build-depends:    base >= 3 && < 5,
+                     directory,
+                     old-locale,
+                     old-time,
+                     process
