@@ -25,13 +25,13 @@
 -}
 
 --import Control.Monad ( when, unless )
+import Data.Time
 import System.Cmd
 import System.Directory
 --import System.Environment
 import System.Exit
 import System.Locale
 --import System.Process
-import System.Time
 import Text.Printf
 --import Text.Regex
 
@@ -60,8 +60,8 @@ date = dateFormat "%c"
    For format string help, see man 3 strftime
 -}
 dateFormat :: String -> IO String
-dateFormat fmt = fmap (formatCalendarTime defaultTimeLocale
-   fmt) (getClockTime >>= toCalendarTime)
+dateFormat fmt = formatTime defaultTimeLocale fmt `fmap`
+   (getCurrentTime >>= utcToLocalZonedTime)
 
 
 {- Output a message with datestamp
