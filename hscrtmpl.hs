@@ -21,7 +21,7 @@
 
    Dino Morelli <dino@ui3.info>
    http://ui3.info/d/proj/hscrtmpl.html
-   version: 1.1
+   version: 1.2
 -}
 
 --import Control.Monad ( when, unless )
