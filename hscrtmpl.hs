@@ -68,7 +68,7 @@ dateFormat fmt = formatTime defaultTimeLocale fmt `fmap`
 -}
 logM :: String -> IO ()
 logM msg = do
-   tstamp <- dateFormat "%Y-%m-%d %H:%M:%S"
+   tstamp <- dateFormat "%F %T"
    printf "%s> %s\n" tstamp msg
 
 
