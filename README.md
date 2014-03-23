@@ -3,7 +3,7 @@
 
 ## Synopsis
 
-Haskell shell script template
+Haskell shell script template (Haskell)
 
 
 ## Description
