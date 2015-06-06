@@ -8,7 +8,7 @@ copyright:           2013-2014 Dino Morelli
 author:              Dino Morelli
 maintainer:          Dino Morelli <dino@ui3.info>
 stability:           experimental
-homepage:            http://ui3.info/darcs/hscrtmpl/
+homepage:            http://hub.darcs.net/dino/hscrtmpl
 synopsis:            Haskell shell script template
 description:         A template for writing shell scripts in Haskell. Contains some useful functions and examples of things commonly done in bash.
 category:            Application, Console, Scripting
