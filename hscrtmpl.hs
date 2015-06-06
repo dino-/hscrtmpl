@@ -30,7 +30,6 @@ import System.Cmd
 import System.Directory
 --import System.Environment
 import System.Exit
-import System.Locale
 --import System.Process
 import Text.Printf
 --import Text.Regex
