@@ -58,7 +58,7 @@ main = do
    putStrLn =<< getEnv "SHELL"               -- echo $SHELL
 
    -- arguments (System.Environment)
-   --(args1 : args2 : _) <- getArgs            -- arg1=$1 ; arg2=$2
+   --(arg1 : arg2 : _) <- getArgs              -- arg1=$1 ; arg2=$2
 
    -- string interpolation (Text.Printf)
    printf "The %s is %d\n"                   -- S="answer" ; D=42
