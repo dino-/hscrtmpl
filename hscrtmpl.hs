@@ -9,42 +9,84 @@
    The idea here is to take a copy of this script and hack it to do
    what you need quickly. Throw the rest out.
 
-   The script starts off (after the imports) with some simple examples
-   in main.
+   The script starts off (after the imports) with a main full of
+   examples of common things along with their bash counterparts.
 
    After that are a few functions that simplify things like getting
    the date as a String, logging a date-stamped String to stdout and
    manupulating an ExitCode as a true/false value.
 
-   Finally, there is a comment block full of examples in bash and some
-   Haskell code to do something along the same lines.
 
    Dino Morelli <dino@ui3.info>
    http://ui3.info/d/proj/hscrtmpl.html
    version: 1.2
 -}
 
---import Control.Monad ( when, unless )
+import Control.Monad
 import Data.Time
 import System.Directory
---import System.Environment
+import System.Environment
 import System.Exit
 import System.Process
 import Text.Printf
---import Text.Regex
+import Text.Regex
 
 
 main :: IO ()
 main = do
-   printf "This is a shell script\n"
+   putStrLn "This is a shell script"
 
-   putStrLn =<< date
+                                             -- in bash:
+   -- dates (Date.Time)
+   putStrLn =<< date                         -- date
+   putStrLn =<< dateFormat "%Y%m%d"          -- date +"%Y%m%d"
+      -- These two functions below
 
-   home <- getHomeDirectory
-   let prompt = printf "HOME is %s" home
-   putStrLn prompt
+   -- file/dir things (System.Directory)
+   putStrLn =<< getHomeDirectory             -- echo $HOME
+   print =<< doesFileExist "foo"             -- [ -f foo ]
+   print =<< doesDirectoryExist "bar"        -- [ -d bar ]
+   putStrLn =<< getCurrentDirectory          -- pwd
+   --setCurrentDirectory "/tmp"                -- cd /tmp
 
+   -- conditional statements (Control.Monad)
+   e <- doesFileExist "hscrtmpl.hs"          -- [ -f hscrtmpl.hs ]
+   when e $ putStrLn "This script exists!"   --    && echo "This script exists!"
+   
+
+   -- environment variables (System.Environment)
+   putStrLn =<< getEnv "SHELL"               -- echo $SHELL
+
+   -- arguments (System.Environment)
+   --(args1 : args2 : _) <- getArgs            -- arg1=$1 ; arg2=$2
+
+   -- string interpolation (Text.Printf)
+   printf "The %s is %d\n"                   -- S="answer" ; D=42
+      "answer" (42::Int)                     -- echo "The $S is $D"
+
+   -- execution, exit code (System.Process)
+   ec <- system "ls -l"                      -- ls -l
+   print ec                                  -- echo $?
+
+   -- execution, capture stdout (System.Process)
+   output <- readProcess "ls" ["-l"]         -- output=$(ls -l)
+      "stdin data, if desired"
+
+      -- or use readProcessWithExitCode
+      -- :: FilePath -> [String] -> String -> IO (ExitCode, String, String)
+      --    program     args        stdin         exitcode  stdout  stderr
+
+   -- regular expressions (Text.Regex)
+   print $ matchRegex                        -- (see bash docs for =~
+      (mkRegex "a(.)b(.)") "axby"            --  and BASH_REMATCH)
+
+   -- Handy date-stamping logM function below
    logM "Example of a log message"
+
+   -- exiting (System.Exit)
+   exitSuccess                               -- exit 0
+   --exitFailure                             -- exit 1
+   --exitWith $ ExitFailure 3                -- exit 3
 
 
 {- Get the current date/time as a string in RFC822 format
@@ -101,57 +143,3 @@ forSystem cs = do
    return $ case all (== ExitSuccess) ecs of
       True  -> ExitSuccess
       False -> ExitFailure 1
-
-
-{- Some common bash things and their Haskell counterparts:
-
-   bash                             Haskell
-   ----                             -------
-   dates                            System.Locale, System.Time
-      date                             date
-
-      date +"%Y%m%d"                   dateFormat "%Y%m%d"
-         result: 20120213
-                                    (these two functions above)
-
-   file/dir things                  System.Directory
-      $HOME                            getHomeDirectory
-      [ -f FILE ]                      doesFileExist FILE
-      [ -d DIR ]                       doesDirectoryExist DIR
-      pwd                              getCurrentDirectory
-      cd DIR                           setCurrentDirectory DIR
-
-   environment variables            System.Environment
-      $VAR                             getEnv "VAR"
-
-   arguments                        System.Environment
-      arg1=$1                          (arg1 : arg2 : _) <- getArgs
-      arg2=$2
-
-   string interpolation             Text.Printf
-      "foo $bar ${baz}"                printf "foo %s %d" bar baz
-
-   execution, exit code             System.Cmd
-      program -x val arg               ec <- system "program -x val arg"
-      ec=$?
-
-   execution, capture stdout        System.Process
-      output=$(program -x val arg)     output <- readProcess "program"
-                                          ["-x", "val", "arg"]
-                                          "stdin data, if desired"
-
-      or use System.Process.readProcessWithExitCode
-      :: FilePath -> [String] -> String -> IO (ExitCode, String, String)
-         program     args        stdin         exitcode  stdout  stderr
-
-   exiting                          System.Exit
-      exit 0                           exitSuccess
-      exit 1                           exitFailure
-      exit INT                         exitWith $ ExitFailure INT
-
-   regular expressions              Text.Regex
-      (see bash docs for =~            mbMatches = matchRegex
-       and BASH_REMATCH)                  (mkRegex "a(.)b(.)") string
-                                          :: Maybe [String]
-
--}
