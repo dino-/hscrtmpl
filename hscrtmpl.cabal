@@ -24,6 +24,5 @@ executable           hscrtmpl
    main-is:          hscrtmpl.hs
    build-depends:      base >= 3 && < 5
                      , directory
-                     , old-locale
                      , process
                      , time
