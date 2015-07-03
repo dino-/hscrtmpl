@@ -18,7 +18,7 @@
 
 
    Dino Morelli <dino@ui3.info>
-   http://ui3.info/d/proj/hscrtmpl.html
+   http://hub.darcs.net/dino/hscrtmpl
    version: 1.3
 -}
 
