@@ -26,11 +26,10 @@
 
 --import Control.Monad ( when, unless )
 import Data.Time
-import System.Cmd
 import System.Directory
 --import System.Environment
 import System.Exit
---import System.Process
+import System.Process
 import Text.Printf
 --import Text.Regex
 
