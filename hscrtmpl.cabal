@@ -25,4 +25,5 @@ executable           hscrtmpl
    build-depends:      base >= 3 && < 5
                      , directory
                      , process
+                     , regex-compat
                      , time
