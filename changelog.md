@@ -1,3 +1,8 @@
+1.4 (2015-07-04)
+
+   * Added time-locale-compat for backwards compatibility
+
+
 1.3 (2015-07-03)
 
    * Most of the commented examples are now live code
