@@ -32,3 +32,4 @@ executable           hscrtmpl
                      , process
                      , regex-compat
                      , time
+                     , time-locale-compat

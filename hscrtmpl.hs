@@ -24,6 +24,8 @@
 
 import Control.Monad
 import Data.Time
+-- For backwards compatibility with GHC < 7.10
+import Data.Time.Locale.Compat ( defaultTimeLocale )
 import System.Directory
 import System.Environment
 import System.Exit
