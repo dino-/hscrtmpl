@@ -32,7 +32,7 @@ import System.Environment
 import System.Exit
 import System.Process
 import Text.Printf
-import Text.Regex
+--import Text.Regex
 
 
 main :: IO ()
@@ -80,8 +80,8 @@ main = do
       --    program     args        stdin         exitcode  stdout  stderr
 
    -- regular expressions (Text.Regex)
-   print $ matchRegex                        -- (see bash docs for =~
-      (mkRegex "a(.)b(.)") "axby"            --  and BASH_REMATCH)
+   --print $ matchRegex                        -- (see bash docs for =~
+   --   (mkRegex "a(.)b(.)") "axby"            --  and BASH_REMATCH)
 
    -- Handy date-stamping logM function below
    logM "Example of a log message"

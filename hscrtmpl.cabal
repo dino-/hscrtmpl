@@ -30,6 +30,6 @@ executable           hscrtmpl
    build-depends:      base >= 3 && < 5
                      , directory
                      , process
-                     , regex-compat
+                     --, regex-compat
                      , time
                      --, time-locale-compat
