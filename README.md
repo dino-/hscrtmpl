@@ -16,6 +16,7 @@ useful functions and examples of things commonly done in bash.
 
 - Download the cabalized source package [from Hackage](http://hackage.haskell.org/package/hscrtmpl)
 - Get the source with darcs: `$ darcs get http://hub.darcs.net/dino/hscrtmpl`
+- Get the source with stack: `$ stack unpack hscrtmpl`
 - If you're just looking, [browse the source](http://hub.darcs.net/dino/hscrtmpl)
 
 
