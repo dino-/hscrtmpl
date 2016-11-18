@@ -1,3 +1,12 @@
+1.5 (2016-11-18)
+
+  * Changed license from BSD3 to ISC
+  * Moved copyright year up to 2016
+  * Switched build and execution from cabal/runhaskell to stack
+  * Commented out example code that uses regexp, it imposes more deps
+  * Some changes to avoid defaultTimeLocale confusion
+
+
 1.4 (2015-07-04)
 
    * Added time-locale-compat for backwards compatibility
