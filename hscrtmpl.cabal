@@ -2,7 +2,7 @@ name:                hscrtmpl
 version:             1.5
 cabal-version:       >= 1.8
 build-type:          Simple
-license:             BSD3
+license:             ISC
 license-file:        LICENSE
 copyright:           2013-2016 Dino Morelli
 author:              Dino Morelli
