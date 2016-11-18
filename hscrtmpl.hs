@@ -1,4 +1,5 @@
-#! /usr/bin/env runhaskell
+#! /usr/bin/env stack
+{- stack runghc -}
 
 {- This is a 'skeleton file' for writing shell scripts with Haskell
 

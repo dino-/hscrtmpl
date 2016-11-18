@@ -16,6 +16,7 @@ tested-with:         GHC >= 7.10.1
 
 extra-source-files:  changelog.md
                      README.md
+                     stack.yaml
                      TODO.md
                      util/prefs/boring
 
