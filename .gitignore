@@ -1,2 +1,5 @@
 # stack build artifacts
 .stack-work/
+
+# Using hpack, we don't store cabal files
+*.cabal
