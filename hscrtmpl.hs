@@ -35,6 +35,7 @@ import Data.Time.Format ( defaultTimeLocale )
 import System.Directory
 import System.Environment
 import System.Exit
+import System.FilePath
 import System.Process
 import Text.Printf
 --import Text.Regex
@@ -50,12 +51,17 @@ main = do
    putStrLn =<< dateFormat "%Y%m%d"          -- date +"%Y%m%d"
       -- These two functions below
 
-   -- file/dir things (System.Directory)
+   -- file/dir things
+   --   (System.Directory)
    putStrLn =<< getHomeDirectory             -- echo $HOME
    print =<< doesFileExist "foo"             -- [ -f foo ]
    print =<< doesDirectoryExist "bar"        -- [ -d bar ]
    putStrLn =<< getCurrentDirectory          -- pwd
    --setCurrentDirectory "/tmp"                -- cd /tmp
+   print =<< makeAbsolute "some/relative/path"
+   --   (System.FilePath)
+   let (path, ext) = splitExtension "foo/bar.baz"
+   print (path, ext)
 
    -- conditional statements (Control.Monad)
    e <- doesFileExist "hscrtmpl.hs"          -- [ -f hscrtmpl.hs ]

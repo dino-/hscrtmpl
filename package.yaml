@@ -29,6 +29,7 @@ executables:
     dependencies:
       - base
       - directory
+      - filepath
       - process
       # - regex-compat
       - time
