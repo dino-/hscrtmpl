@@ -12,7 +12,6 @@ extra-source-files:
 - README.md
 - package.yaml
 - stack.yaml
-- TODO.md
 
 github: dino-/hscrtmpl
 
