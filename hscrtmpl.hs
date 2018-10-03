@@ -115,7 +115,7 @@ date = dateFormat "%c"
    For format string help, see man 3 strftime
 -}
 dateFormat :: String -> IO String
-dateFormat fmt = formatTime defaultTimeLocale fmt `fmap`
+dateFormat fmt = formatTime defaultTimeLocale fmt <$>
    (getCurrentTime >>= utcToLocalZonedTime)
 
 
