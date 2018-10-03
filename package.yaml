@@ -23,6 +23,8 @@ ghc-options:
 - -Wincomplete-uni-patterns
 - -Wredundant-constraints
 
+# Hey! hscrtmpl.hs is a *script*, you don't have to build it unless
+# you want to have a binary!
 executables:
   hscrtmpl:
     main: hscrtmpl.hs
