@@ -1,3 +1,17 @@
+1.6 (2018-10-03)
+
+  * Moved copyright date up to 2018
+  * Replaced out-of-fashion `fmap` with newfangled Applicative fmap
+  * Changed to two-space indenting
+  * Fixed a git source repository URL that was missed
+  * Added some path split and dir examples
+  * Removed unused TODO.md file
+  * Moved stack resolver up to 12.11
+  * Added example #! for runhaskell
+  * Switched to hpack
+  * Removed Vim swapfiles from .gitignore
+
+
 1.5 (2016-11-18)
 
   * Changed license from BSD3 to ISC
