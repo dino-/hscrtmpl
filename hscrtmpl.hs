@@ -23,7 +23,7 @@
 
 
    Dino Morelli <dino@ui3.info>
-   http://hub.darcs.net/dino/hscrtmpl
+   https://github.com/dino-/hscrtmpl
    version: 1.6
 -}
 
