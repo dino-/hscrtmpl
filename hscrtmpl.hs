@@ -1,6 +1,10 @@
 #! /usr/bin/env stack
 {- stack runghc -}
 
+{- No stack? Use this #! instead of the two lines above:
+#! /usr/bin/env runhaskell
+-}
+
 {- This is a 'skeleton file' for writing shell scripts with Haskell
 
    Haskell is my go-to language for anything more complicated than a
