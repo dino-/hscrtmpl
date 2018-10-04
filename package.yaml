@@ -9,6 +9,7 @@ copyright: 2018 Dino Morelli
 category: Application, Console, Scripting
 extra-source-files:
 - changelog.md
+- .gitignore
 - README.md
 - package.yaml
 - stack.yaml
@@ -29,7 +30,7 @@ executables:
   hscrtmpl:
     main: hscrtmpl.hs
     dependencies:
-      - base
+      - base >=3 && <5
       - directory
       - filepath
       - process
