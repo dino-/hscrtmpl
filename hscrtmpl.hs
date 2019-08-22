@@ -25,7 +25,7 @@
 
   Dino Morelli <dino@ui3.info>
   https://github.com/dino-/hscrtmpl
-  version: 1.6
+  version: 1.7
 -}
 
 import Control.Monad
