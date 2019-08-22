@@ -155,6 +155,6 @@ exitBool = exitWith . toExitCode
 forSystem :: [String] -> IO ExitCode
 forSystem cs = do
   ecs <- mapM system cs
-  return $ case all (== ExitSuccess) ecs of
-    True  -> ExitSuccess
-    False -> ExitFailure 1
+  return $ if all (== ExitSuccess) ecs
+    then ExitSuccess
+    else ExitFailure 1
