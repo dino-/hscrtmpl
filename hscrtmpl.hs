@@ -79,6 +79,9 @@ main = do
   printf "The %s is %d\n"                   -- S="answer" ; D=42
     "answer" (42::Int)                     -- echo "The $S is $D"
 
+  -- sequence expressions
+  -- [1..10]                                   -- {1..10}
+
   -- execution, exit code (System.Process)
   ec <- system "ls -l"                      -- ls -l
   print ec                                  -- echo $?
