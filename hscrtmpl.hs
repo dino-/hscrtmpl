@@ -29,6 +29,8 @@
 -}
 
 import Control.Monad
+import Data.List
+import Data.Maybe
 import Data.Time
 import Data.Time.Format ( defaultTimeLocale )
 -- Or use time-locale-compat for backwards compatibility with GHC < 7.10
@@ -150,14 +152,18 @@ exitBool :: Bool -> IO ()
 exitBool = exitWith . toExitCode
 
 
-{- This is similar to the for/in/do/done construct in bash with an
-   important difference. This action evaluates to ExitFailure 1 if
-   *any* of the command executions fails. In bash you only get the
-   exit code of the last one.
+{- This is similar to the for/in/do/done construct in bash with an important
+   difference. This action evaluates to the "worst" exit code of all IO actions
+   that are passed after they are evaluated.
 -}
-forSystem :: [String] -> IO ExitCode
-forSystem cs = do
-  ecs <- mapM system cs
-  return $ if all (== ExitSuccess) ecs
-    then ExitSuccess
-    else ExitFailure 1
+sequenceWorstEC :: [IO ExitCode] -> IO ExitCode
+sequenceWorstEC as =
+  fromMaybe ExitSuccess . listToMaybe . reverse . sort <$> sequence as
+
+
+{- This is similar to the for/in/do/done construct in bash with an important
+   difference. This action evaluates to the "worst" exit code of all shell
+   commands that are passed after they are evaluated.
+-}
+systemWorstEC :: [String] -> IO ExitCode
+systemWorstEC = sequenceWorstEC . map system
