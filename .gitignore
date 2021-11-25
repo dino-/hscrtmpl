@@ -1,5 +1,6 @@
 # stack build artifacts
 .stack-work/
+stack.yaml.lock
 
 # Using hpack, we don't store cabal files
 *.cabal
