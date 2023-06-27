@@ -1,6 +1,9 @@
 #! /usr/bin/env stack
 {- stack runghc -}
 
+-- If you need a specific resolver, do this:
+-- stack --resolver lts-7.8 runghc
+
 {- No stack? Use this #! instead of the two lines above:
 #! /usr/bin/env runhaskell
 -}
