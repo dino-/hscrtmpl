@@ -49,28 +49,22 @@ data Options = Options
 parser :: Parser Options
 parser = Options
   <$> ( switch
-        (  long "switch"
-        <> short 's'
+        (  long "switch" <> short 's'
         <> help "A switch option"
         )
       )
   <*> ( optional $ strOption
-        (  long "maybe-string"
-        <> short 'm'
-        <> metavar "STRING"
+        (  long "maybe-string" <> short 'm' <> metavar "STRING"
         <> help "An optional string option"
         )
       )
   <*> ( flag Normal Verbose
-        (  long "verbose"
-        <> short 'v'
+        (  long "verbose" <> short 'v'
         <> help "A flag option"
         )
       )
   <*> ( strOption
-        (  long "string"
-        <> short 'S'
-        <> metavar "STRING"
+        (  long "string" <> short 'S' <> metavar "STRING"
         <> help "A required string option"
         )
       )
