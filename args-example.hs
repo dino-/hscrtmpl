@@ -3,7 +3,7 @@
 {-# LANGUAGE QuasiQuotes #-}
 
 -- If you need a specific resolver, do this:
--- stack --resolver lts-7.8 runghc --package ...
+-- stack --resolver lts-16.11 runghc --package ...
 
 {-
   This is a 'skeleton file' for writing shell scripts with Haskell that have
