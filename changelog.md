@@ -1,3 +1,23 @@
+2.0 (2023-06-28)
+
+  * Wrote a new args-example script
+  * Added a note about specifying the Stackage resolver
+  * Switched to modern cabal file instead of hpack
+  * Moved Stackage resolver up to 16.11 (ghc 8.8.3)
+  * Removed Setup.hs
+  * Added example of custom error message with lookupEnv
+
+1.8 (2021-09-05)
+
+  * Moved copyright up to 2021
+  * Added stack.yaml.lock to .gitignore
+  * Replace forSystem function
+
+1.7 (2019-08-22)
+
+  * Added sequence expression example
+  * Replaced a case statement with an if
+
 1.6 (2018-10-03)
 
   * Moved copyright date up to 2018
