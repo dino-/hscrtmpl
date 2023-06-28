@@ -75,7 +75,20 @@ main = do
    
 
   -- environment variables (System.Environment)
+
+  -- This will exit with a message and failure code if the variable doesn't exist!
   putStrLn =<< getEnv "SHELL"               -- echo $SHELL
+
+  -- To handle unset variables, use lookupEnv :: String -> IO (Maybe String)
+
+  -- someValue <- maybe                        someValue="${SOMEVAR:?Error: SOMEVAR not set}"
+  --    (die "Error: SOMEVAR is not set")
+  --    pure =<< lookupEnv "SOMEVAR"
+
+  someValue <- fromMaybe "default value"    -- someValue="${SOMEVAR:-default value}"
+     <$> lookupEnv "SOMEVAR"
+  putStrLn someValue
+
 
   -- arguments (System.Environment)
   --(arg1 : arg2 : _) <- getArgs              -- arg1=$1 ; arg2=$2
