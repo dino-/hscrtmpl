@@ -12,9 +12,6 @@
   The idea here is to take a copy of this script and hack it to do what you
   need quickly. Throw the rest out.
 
-  The script starts off (after the imports) with some example arg parsing code
-  and then a simple main that shows the results.
-
   For more examples of doing common shell tasks, see the hscrtmpl.hs script
   also in this project.
 
@@ -31,6 +28,12 @@ import Text.PrettyPrint.ANSI.Leijen ( string )
 import Text.Printf ( printf )
 
 
+main :: IO ()
+main = do
+  opts <- parseOpts
+  print opts
+
+
 data Verbosity = Normal | Verbose
   deriving Show  -- For debugging, possibly not needed
 
@@ -43,6 +46,15 @@ data Options = Options
   , optArguments :: [String]
   }
   deriving Show  -- For debugging, possibly not needed
+
+
+parseOpts :: IO Options
+parseOpts = do
+  pn <- getProgName
+  execParser $ info (parser <**> helper)
+    (  header (printf "%s - Argument parsing demo script" pn)
+    <> footer'
+    )
 
 
 -- For more help on building parsers: https://github.com/pcapriotti/optparse-applicative
@@ -80,25 +92,10 @@ parser = Options
       )
 
 
-parseOpts :: IO Options
-parseOpts = do
-  pn <- getProgName
-  execParser $ info (parser <**> helper)
-    (  header (printf "%s - Argument parsing demo script" pn)
-    <> footer'
-    )
-
-
 footer' :: InfoMod a
 footer' = footerDoc . Just $ string content
   where content = [here|OVERVIEW
 
-Put more info here about what this script is for an how it works
+Put more info here about what this script is for and how it works
 
 v2.0  2023-06-27  Dino Morelli <dino@ui3.info>|]
-
-
-main :: IO ()
-main = do
-  opts <- parseOpts
-  print opts
