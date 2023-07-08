@@ -6,6 +6,11 @@
   * Moved Stackage resolver up to 16.11 (ghc 8.8.3)
   * Removed Setup.hs
   * Added example of custom error message with lookupEnv
+  * Removed instructions for darcs
+  * Removed later copyright date
+  * Reorganized the functions in args-example.hs
+  * Updated cabal file and README to reflect multiple scripts
+
 
 1.8 (2021-09-05)
 
@@ -13,10 +18,12 @@
   * Added stack.yaml.lock to .gitignore
   * Replace forSystem function
 
+
 1.7 (2019-08-22)
 
   * Added sequence expression example
   * Replaced a case statement with an if
+
 
 1.6 (2018-10-03)
 
