@@ -30,6 +30,8 @@ common lang
   default-language: Haskell2010
   other-modules:
     Paths_hscrtmpl
+  autogen-modules:
+    Paths_hscrtmpl
   build-depends:
       process
   ghc-options:
