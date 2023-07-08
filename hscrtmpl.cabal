@@ -2,8 +2,8 @@ cabal-version: 2.2
 
 name:           hscrtmpl
 version:        2.0
-synopsis:       Haskell shell script template
-description:    A template for writing shell scripts in Haskell. Contains some useful functions and examples of things commonly done in bash.
+synopsis:       Haskell shell script templates
+description:    Templates for writing shell scripts in Haskell. Includes some useful functions and examples of things commonly done in bash. And an example of using optparse-applicative in a shell script.
 category:       Application, Console, Scripting
 homepage:       https://github.com/dino-/hscrtmpl#readme
 bug-reports:    https://github.com/dino-/hscrtmpl/issues
