@@ -18,7 +18,7 @@
 
   Dino Morelli <dino@ui3.info>
   https://github.com/dino-/hscrtmpl
-  version: 2.0  2023-06-27
+  version: 2.1  2025-07-15
 -}
 
 import Options.Applicative
@@ -98,4 +98,4 @@ footer' = footerDoc . Just . pretty $ content
 
 Put more info here about what this script is for and how it works
 
-v2.0  2023-06-27  Dino Morelli <dino@ui3.info>|]
+v2.1  2025-07-15  Dino Morelli <dino@ui3.info>|]
