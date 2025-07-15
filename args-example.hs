@@ -1,9 +1,9 @@
 #! /usr/bin/env stack
--- stack runghc --package ansi-wl-pprint --package heredoc --package optparse-applicative
+-- stack --snapshot lts-22.6 runghc --package heredoc --package optparse-applicative --package prettyprinter
 {-# LANGUAGE QuasiQuotes #-}
 
--- If you need a specific resolver, do this:
--- stack --resolver lts-16.11 runghc --package ...
+-- If you don't need a specific snapshot resolver, do this:
+-- stack runghc --package ...
 
 {-
   This is a 'skeleton file' for writing shell scripts with Haskell that have
@@ -22,9 +22,9 @@
 -}
 
 import Options.Applicative
+import Prettyprinter (pretty)
 import System.Environment ( getProgName )
 import Text.Heredoc ( here )
-import Text.PrettyPrint.ANSI.Leijen ( string )
 import Text.Printf ( printf )
 
 
@@ -93,7 +93,7 @@ parser = Options
 
 
 footer' :: InfoMod a
-footer' = footerDoc . Just $ string content
+footer' = footerDoc . Just . pretty $ content
   where content = [here|OVERVIEW
 
 Put more info here about what this script is for and how it works
