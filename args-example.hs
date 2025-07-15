@@ -58,33 +58,30 @@ parseOpts = do
 
 
 -- For more help on building parsers: https://github.com/pcapriotti/optparse-applicative
+{- HLINT ignore "Move brackets to avoid $" -}
 parser :: Parser Options
 parser = Options
-  <$> ( switch
+  <$> switch
         (  long "switch" <> short 's'
         <> help "A switch option"
         )
-      )
   <*> ( optional $ strOption
         (  long "maybe-string" <> short 'm' <> metavar "STRING"
         <> help "An optional string option"
         )
       )
-  <*> ( flag Normal Verbose
+  <*> flag Normal Verbose
         (  long "verbose" <> short 'v'
         <> help "A flag option"
         )
-      )
-  <*> ( strOption
+  <*> strOption
         (  long "string" <> short 'S' <> metavar "STRING"
         <> help "A required string option"
         )
-      )
-  <*> ( argument str
+  <*> argument str
         (  metavar "DIR"
         <> help "A required single argument"
         )
-      )
   <*> some ( argument str
         (  metavar "FILES..."
         <> help "Multiple arguments, one or more required"
