@@ -2,7 +2,7 @@
 {- stack runghc -}
 
 -- If you need a specific resolver, do this:
--- stack --resolver lts-7.8 runghc
+-- stack --snapshot lts-22.6 runghc
 
 {- No stack? Use this #! instead of the two lines above:
 #! /usr/bin/env runhaskell
