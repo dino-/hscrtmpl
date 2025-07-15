@@ -172,6 +172,7 @@ exitBool = exitWith . toExitCode
    difference. This action evaluates to the "worst" exit code of all IO actions
    that are passed after they are evaluated.
 -}
+{- HLINT ignore "Avoid reverse" -}
 sequenceWorstEC :: [IO ExitCode] -> IO ExitCode
 sequenceWorstEC as =
   fromMaybe ExitSuccess . listToMaybe . reverse . sort <$> sequence as
