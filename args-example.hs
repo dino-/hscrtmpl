@@ -23,9 +23,9 @@
 
 import Options.Applicative
 import Prettyprinter (pretty)
-import System.Environment ( getProgName )
-import Text.Heredoc ( here )
-import Text.Printf ( printf )
+import System.Environment (getProgName)
+import Text.Heredoc (here)
+import Text.Printf (printf)
 
 
 main :: IO ()

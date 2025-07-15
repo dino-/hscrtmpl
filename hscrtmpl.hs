@@ -35,9 +35,9 @@ import Control.Monad
 import Data.List
 import Data.Maybe
 import Data.Time
-import Data.Time.Format ( defaultTimeLocale )
+import Data.Time.Format (defaultTimeLocale)
 -- Or use time-locale-compat for backwards compatibility with GHC < 7.10
---import Data.Time.Locale.Compat ( defaultTimeLocale )
+--import Data.Time.Locale.Compat (defaultTimeLocale)
 import System.Directory
 import System.Environment
 import System.Exit
